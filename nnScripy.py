@@ -287,8 +287,9 @@ def main():
   start = time.time()
 
   train_data, train_label, validation_data,validation_label, test_data, test_label = preprocess();
-  # print(train_data.shape)
-  # print(validation_data.shape)
+  print(train_data.shape)
+  print(validation_data.shape)
+  print(test_data.shape)
 
 
 
@@ -298,7 +299,7 @@ def main():
   # set the number of nodes in input unit (not including bias unit)
   n_input = train_data.shape[1]
   # set the number of nodes in hidden unit (not including bias unit)
-  n_hidden = 8; # you can play with this setting
+  n_hidden = 20; # you can play with this setting
   # set the number of nodes in output unit
   n_class = 10;# this has to be 10, because we have 10 classes
   # initialize the weights into some random matrices
@@ -307,7 +308,7 @@ def main():
   # unroll 2 weight matrices into single column vector
   initialWeights = np.concatenate((initial_w1.flatten(), initial_w2.flatten()),0)
   # set the regularization hyper-parameter
-  lambdaval = 0.9;# you need to play with this setting to get better validation accuracy
+  lambdaval = 0.2;# you need to play with this setting to get better validation accuracy
   # form the parameter tuple
   args = (n_input, n_hidden, n_class, train_data, train_label, lambdaval)
 
